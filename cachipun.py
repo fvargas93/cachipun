@@ -40,8 +40,13 @@ def check_rules(user_option,computer_option):
             computer_win = 1
     return message,user_win,computer_win
 
-def check_winner():
-    pass
+def check_winner(user_wins,computer_wins,attemps):
+    message = ''
+    if user_wins == attemps:
+        message = f'¡El ganador del juego es {username}! 🧑🏻🎖️'
+    elif computer_wins == attemps:
+        message = f'¡El ganador del juego es el computador! 🤖🎖️'
+    return message
 
 def run_game():
     user_wins = 0
