@@ -43,16 +43,23 @@ def check_rules(user_option,computer_option):
 def check_winner(user_wins,computer_wins,attemps):
     message = ''
     if user_wins == attemps:
-        message = f'¡El ganador del juego es {username}! 🧑🏻🎖️'
+        message = f'¡\nEl ganador del juego es {username}! 🧑🏻🎖️'
     elif computer_wins == attemps:
-        message = f'¡El ganador del juego es el computador! 🤖🎖️'
+        message = f'¡\nEl ganador del juego es el computador! 🤖🎖️'
     return message
 
 def run_game():
     user_wins = 0
     computer_wins = 0
-    pass
+    while user_wins < attempts and computer_wins < attempts:
+        user_option,computer_option = choose_option()
+        msg_rules,user_win,computer_win = check_rules(user_option,computer_option)
+        print(msg_rules)
+        if user_win > computer_win:
+            user_wins+=1
+        elif computer_win > user_win:
+            computer_wins+=1
+    else:
+        print(check_winner(user_wins,computer_wins,attempts))
 
-user_option,computer_option = choose_option()
-print(user_option,computer_option)
-print(check_rules(user_option,computer_option))
+run_game()
